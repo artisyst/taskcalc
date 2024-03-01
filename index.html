@@ -89,7 +89,6 @@
     dfht += `<h3>N = ${x_smm.toFixed(2)}</h3>`;
     dfht += '</div>';
     $('#content').html(dfht)
-    console.log(`x_smm = randge(${(smm_min + smm_max)/2}, ${smm_max - 0.05});`)
     console.log(df);
     console.log(`N = ${x_smm.toFixed(2)}`)
   }
@@ -100,7 +99,6 @@
     console.log("Loaded...");
     $('#inp-fullname').val(Cookies.get('fullname'));
     const lab = findGetParameter('lab');
-    console.log(`lab = ${lab}`);
     $('#sel-widn').val(lab || Cookies.get('widn') || '01');
 
     $('#button-gen').on('click', function () {
@@ -109,9 +107,7 @@
         alert('Немає імені/призвіща!');
         return;
       };
-      console.log(`Generate for "${fn}"`);
       seedlist = seedlist_4x32(fn)
-      console.log(`Seed list = ${seedlist}`);
       var rand = sfc32(seedlist[0], seedlist[1], seedlist[2], seedlist[3]);
 
       switch($('#sel-widn').val()) {
@@ -123,7 +119,6 @@
     });
 
     $('#inp-fullname').on('change', function () {
-      console.log(`Fullname is changed to "${$('#inp-fullname').val()}"!`);
       Cookies.set('fullname', $('#inp-fullname').val());
     });
 
@@ -136,7 +131,6 @@
     });
 
     $('#sel-widn').on('change', function () {
-      console.log(`WIDN is changed to "${$('#sel-widn').val()}"!`);
       Cookies.set('widn', $('#sel-widn').val());
     });
   });
