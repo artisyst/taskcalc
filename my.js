@@ -3,6 +3,7 @@
    taskcalc@membrama.com
 */
 
+/* Based on https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript */
 function seedlist_4x32(str) {
   let h1 = 1779033703, h2 = 3144134277,
       h3 = 1013904242, h4 = 2773480762;
@@ -33,6 +34,7 @@ function sfc32(a, b, c, d) {
     return (t >>> 0) / 4294967296;
   }
 }
+/* /// */
 
 function findGetParameter(parameterName) {
   var result = null,
