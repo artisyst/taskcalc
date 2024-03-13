@@ -40,6 +40,11 @@
                 <option>03</option>
                 <option>04</option>
                 <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
               </select>    
             </td>
             <td><button id="button-gen" class="button-gen">OK</button></td>
@@ -122,6 +127,19 @@
 </script>
 
 <script>
+  function lab_pract_03(rand) {
+    console.log('Лабораторно-практична робота №3');
+    const randge = function(from, to) { return rand_range(rand, from, to); }
+    var min_corr = randge(0.3,0.5).toFixed(3);
+    var dfht = '<div class="content01-div">'
+      +   '<h2>Мінімальна кореляцція: ' + min_corr + '</h2>'
+      + '</div>';
+    $('#content').html(dfht);
+    console.log(`min_corr={min_corr}`);
+  }
+</script>
+
+<script>
   $(function() {
     console.log("Loaded...");
     $('#inp-fullname').val(Cookies.get('fullname'));
@@ -140,6 +158,7 @@
       switch($('#sel-widn').val()) {
         case '01': lab_pract_01(rand); break;
         case '02': lab_pract_02(rand); break;
+        case '03': lab_pract_03(rand); break;
         default:
           alert('Вибачте, ще не готово...');
           break;
