@@ -140,6 +140,28 @@
 </script>
 
 <script>
+  function lab_pract_04(rand) {
+    console.log('Лабораторно-практична робота №4');
+    const randge = function(from, to) { return rand_range(rand, from, to); }
+    const s = Math.floor(randge(1.,5.9));
+    var v = '<a href="AIS_W04.ipynb">AIS_W04.ipynb</a><hr>'
+    switch(s) {
+      case 1: v += 'Дощ -> осінь<br>Сніг -> ?'; break;
+      case 2: v += 'Мама -> Тато<br>Сестра -> ?'; break;
+      case 3: v += 'Осло -> Норвегія<br>Бухарест -> ?'; break;
+      case 4: v += 'Південь -> Північ<br>Захід -> ?'; break;
+      case 5: v += 'Стопка -> Горілка<br>Філіжанка -> ?'; break;
+    }
+    v += '<hr>Сумаризація тексту № ' + Math.floor(randge(2.,8.9))
+    var dfht = '<div class="content01-div">'
+      + v
+      + '</div>';
+    $('#content').html(dfht);
+    console.log(v);
+  }
+</script>
+
+<script>
   $(function() {
     console.log("Loaded...");
     $('#inp-fullname').val(Cookies.get('fullname'));
@@ -159,6 +181,7 @@
         case '01': lab_pract_01(rand); break;
         case '02': lab_pract_02(rand); break;
         case '03': lab_pract_03(rand); break;
+        case '04': lab_pract_04(rand); break;
         default:
           alert('Вибачте, ще не готово...');
           break;
