@@ -45,6 +45,7 @@
                 <option>08</option>
                 <option>09</option>
                 <option>10</option>
+                <option>КР</option>
               </select>    
             </td>
             <td><button id="button-gen" class="button-gen">OK</button></td>
@@ -162,6 +163,31 @@
 </script>
 
 <script>
+  function coursework(rand) {
+    console.log('Курсова робота');
+    const randge = function(from, to) { return rand_range(rand, from, to); }
+    const s = Math.floor(randge(1.,5.9));
+    const files = ['rps-awl.png', 'rps-fire.png', 'rps-paper.png', 'rps-rock.png', 'rps-scissors.png', 'rps-sniper.png', 'rps-well.png'];
+    const titles =['Голка', 'Вогонь', 'Папір', 'Камінь', 'Ножиці', 'Снайпер', 'Колодязь'];
+    var v = '';
+    var n = -1;
+    for (var i = 0; i < 3; ++i) {
+      if (n>=0)
+        v += '<hr>';
+      n = Math.trunc(randge(0, files.length));
+      v += `${titles[n]}:<br><img src="${files[n]}" width="50px"> `;
+      files.splice(n,1);
+      titles.splice(n,1);
+    }
+    var dfht = '<div class="content01-div"><center>'
+      + v
+      + '</center></div>';
+    $('#content').html(dfht);
+    console.log(v);
+  }
+</script>
+
+<script>
   $(function() {
     console.log("Loaded...");
     $('#inp-fullname').val(Cookies.get('fullname'));
@@ -182,6 +208,8 @@
         case '02': lab_pract_02(rand); break;
         case '03': lab_pract_03(rand); break;
         case '04': lab_pract_04(rand); break;
+        case '05': alert('Зробіть власне фото для класифікації відповідно до завдання.'); break;
+        case 'КР': coursework(rand); break
         default:
           alert('Вибачте, ще не готово...');
           break;
