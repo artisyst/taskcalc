@@ -163,6 +163,32 @@
 </script>
 
 <script>
+  function lab_pract_06(rand) {
+    console.log('Лабораторно-практична робота №6');
+    const randge = function(from, to) { return rand_range(rand, from, to); }
+    const test_questions =[
+      'Make a scientific discovery for me!',
+      'Is the world a simulation?',
+      'Where do elephants live?',
+      'What is the highest peak on Earth?',
+      'Where is the center of the universe?',
+      'Do you like flowers?',
+      'How to conquer the world',
+      'Will you steal my job?',
+      'Do you play chess?',
+      'Sing me a song!',
+      'Who lives on Mars?'
+    ];
+    n = Math.trunc(randge(0, test_questions.length));
+    var dfht = '<div class="content01-div">'
+      + test_questions[n]
+      + '</div>';
+    $('#content').html(dfht);
+    console.log(test_questions[n]);
+  }
+</script>
+
+<script>
   function coursework(rand) {
     console.log('Курсова робота');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -209,6 +235,7 @@
         case '03': lab_pract_03(rand); break;
         case '04': lab_pract_04(rand); break;
         case '05': alert('Зробіть власне фото для класифікації відповідно до завдання.'); break;
+        case '06': lab_pract_06(rand); break;
         case 'КР': coursework(rand); break
         default:
           alert('Вибачте, ще не готово...');
