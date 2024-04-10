@@ -191,6 +191,46 @@
 </script>
 
 <script>
+  function lab_pract_07(rand) {
+    console.log('Лабораторно-практична робота №7');
+    const randge = function(from, to) { return rand_range(rand, from, to); }
+    var dfht = '<div class="content01-div">'+
+    '<table class="content01-table">'
+    + '<tr>'
+    +    '<th>Довжина</th>'
+    +    '<th>Ширина</th>'
+    +    '<th>Клас</th>'
+    +  '</tr>';
+    var len, len1, width, cls;
+    var thumb = 1.;
+    for (var i = 1; i <= 15; ++i) {
+      if (randge(0., thumb) < 0.5) {
+        thumb /= 0.8;
+        cls = 'гусінь';
+        len = randge(5., 100.);
+        len1 = len + randge(0., 2.);
+        width = len1 / (5. + (len1 - 5.) / 23.);
+      } else {
+        thumb *= 0.8;
+        cls = 'жук';
+        len = randge(5., 15.);
+        len1 = len + randge(0., 3.);
+        width = len1 * 0.75;
+      } 
+      dfht +=
+          '<tr>'
+        +    `<td>${len.toFixed(0)}</td>`
+        +    `<td>${width.toFixed(0)}</td>`
+        +    `<td>${cls}</td>`
+        +  '</tr>';
+    }
+    dfht += '</table>';
+    dfht += '</div>';
+    $('#content').html(dfht)
+  }
+</script>
+
+<script>
   function coursework(rand) {
     console.log('Курсова робота');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -238,6 +278,7 @@
         case '04': lab_pract_04(rand); break;
         case '05': alert('Зробіть фото для класифікації власноруч відповідно до завдання.'); break;
         case '06': lab_pract_06(rand); break;
+        case '07': lab_pract_07(rand); break;
         case 'КР': coursework(rand); break
         default:
           alert('Вибачте, ще не готово...');
