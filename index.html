@@ -65,11 +65,12 @@
 <!----------------------------------------------------------------------------------------------->
 <script>
   function rand_range(rand, from, to) {
-    return rand() * (to - from) + from;
+    return rand() * (to - from) + from; // [from,to)
   }
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 01 ///
   function lab_pract_01(rand) {
     console.log('Лабораторно-практична робота №1');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -111,6 +112,7 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 02 ///
   function lab_pract_02(rand) {
     console.log('Лабораторно-практична робота №2');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -128,6 +130,7 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 03 ///
   function lab_pract_03(rand) {
     console.log('Лабораторно-практична робота №3');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -141,6 +144,7 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 04 ///
   function lab_pract_04(rand) {
     console.log('Лабораторно-практична робота №4');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -163,6 +167,7 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 06 ///
   function lab_pract_06(rand) {
     console.log('Лабораторно-практична робота №6');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -191,6 +196,7 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 07 ///
   function lab_pract_07(rand) {
     console.log('Лабораторно-практична робота №7');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -231,6 +237,111 @@
 </script>
 
 <script>
+  function copy_to_clipboard(text) {
+    navigator.clipboard.writeText(text).then(function () {
+      alert('Скопійовано! Використайте CTRL-V щоб вставити в Google Colab або деінде!')
+    }, function () {
+      alert('Не скопійовано. Перевірте дозволи для clipboard')
+    });
+  }
+</script>
+
+<script>
+  /////////////////////////////////////////////////////////////////// ЛР 08 ///
+  function lab_pract_08(rand) {
+    console.log('Лабораторно-практична робота №8');
+    const randge = function(from, to) { return rand_range(rand, from, to); }
+
+    function gauss_rand(mean=0, stdev=1) {
+      const u = 1 - rand(); // converting [0,1) to (0,1]
+      const v = rand();
+      const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+      // Transform to the desired mean and standard deviation:
+      return z * stdev + mean;
+    }
+
+    const N = 101;
+    var i, v;
+    var df_age = [];
+    var avg_age = 0;
+    var df_income = [];
+    var avg_income = 0;
+    var max_income = 0;
+    var df_penalty = [];
+
+    for (i = 0; i < N; ++i) {
+      // Вік
+      v = Math.round(Math.abs(gauss_rand(25,35)));
+      if (v < 19 || v > 89) v = Math.round(20+rand()*5);
+      avg_age += v;
+      df_age.push(v);
+      //  Щомісячний дохід
+      v = Math.round(Math.abs(gauss_rand(5000,3000)));
+      avg_income += v;
+      if (max_income < v) max_income = v;
+      df_income.push(v);
+      // Штрафи за невчасне повернення минулих кредитів
+      v = gauss_rand(-0.29,0.35);
+      if (v < 0) v = 0;
+      df_penalty.push(Math.round(v * 100) / 100);
+    }
+    avg_age /= N; // ~38
+    // console.log(`avg_age=${avg_age}, df_age: ${df_age}`)
+    avg_income /= N;
+    // console.log(`avg_income=${avg_income}, max_income=${max_income}, df_income: ${df_income}`);
+    // console.log(`df_penalty: ${df_penalty}`);
+
+    function estim() {
+      ack = [];
+      income_thresh = max_income * 2 / 3;
+      for (var i = 0; i < N; ++i) {
+        if (df_income[i] > income_thresh)
+          ack.push(2);
+        else if (df_penalty[i] > 0.24)
+          ack.push(0);
+        else if ((df_age[i] / avg_age) * (df_income[i] / avg_income) / (1 + df_penalty[i]) < 0.5)
+          ack.push(0);
+        else
+          ack.push(1);
+      }
+      return ack;
+    }
+
+    df_ack = estim();
+    const df = `df = pd.DataFrame({'age': [${df_age}],` + '\n' +
+               `                   'income': [${df_income}],` + '\n' +
+               `                   'penalty': [${df_penalty}],` + '\n' +
+               `                   'ack': [${df_ack}]})`;
+    console.log(df);
+
+    var dfht = '<div class="content01-div">'
+    dfht += '<button id="lab_pract_08_clipboard">Копіювати в Clipboard</button>'
+    + '<br>';
+
+    dfht += '<table class="content01-table">'
+    + '<tr>'
+    +    '<th>Вік</th>'
+    +    '<th>Дохід</th>'
+    +    '<th>Штрафи</th>'
+    +    '<th>Оцінка</th>'
+    +  '</tr>';
+    for (i = 0; i < N; ++i) {
+      dfht += '<tr>'
+        +    `<td>${df_age[i]}</td>`
+        +    `<td>${df_income[i]}</td>`
+        +    `<td>${df_penalty[i]}</td>`
+        +    `<td>${['Ні','Бесіда','Так'][df_ack[i]]}</td>`
+        +  '</tr>';
+    } 
+    dfht += '</table>';
+    dfht += '</div>';
+    $('#content').html(dfht);
+    $('#lab_pract_08_clipboard').on('click', function() { copy_to_clipboard(df + '\n'); });
+  }
+</script>
+
+<script>
+  ////////////////////////////////////////////////////////////////////// КР ///
   function coursework(rand) {
     console.log('Курсова робота');
     const randge = function(from, to) { return rand_range(rand, from, to); }
@@ -279,6 +390,7 @@
         case '05': alert('Зробіть фото для класифікації власноруч відповідно до завдання.'); break;
         case '06': lab_pract_06(rand); break;
         case '07': lab_pract_07(rand); break;
+        case '08': lab_pract_08(rand); break;
         case 'КР': coursework(rand); break
         default:
           alert('Вибачте, ще не готово...');

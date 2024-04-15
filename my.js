@@ -31,9 +31,10 @@ function sfc32(a, b, c, d) {
     b = c + (c << 3) | 0;
     c = (c << 21 | c >>> 11);
     c = c + t | 0;
-    return (t >>> 0) / 4294967296;
+    return (t >>> 0) / 4294967296;  // return [0.,1.)
   }
 }
+
 /* /// */
 
 function findGetParameter(parameterName) {
