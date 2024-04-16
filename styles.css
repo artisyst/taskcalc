@@ -66,6 +66,13 @@ body {
   overflow-y: auto;
 }
 
+.content01-button {
+  margin: 0 0 5% 10%;
+  font-size: large;
+  border-radius: 15px;
+  border-color: brown;
+}
+
 .content01-table { text-align: center; }
 .content01-table td { padding: 2px 4px; }
 .content01-table th { background-color: gray; color: white; }

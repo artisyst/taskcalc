@@ -286,10 +286,7 @@
       df_penalty.push(Math.round(v * 100) / 100);
     }
     avg_age /= N; // ~38
-    // console.log(`avg_age=${avg_age}, df_age: ${df_age}`)
     avg_income /= N;
-    // console.log(`avg_income=${avg_income}, max_income=${max_income}, df_income: ${df_income}`);
-    // console.log(`df_penalty: ${df_penalty}`);
 
     function estim() {
       ack = [];
@@ -315,18 +312,18 @@
     console.log(df);
 
     var dfht = '<div class="content01-div">'
-    dfht += '<button id="lab_pract_08_clipboard">Копіювати в Clipboard</button>'
-    + '<br>';
-
+    dfht += '<button class="content01-button" id="lab_pract_08_clipboard">Копіювати в Clipboard</button>';
     dfht += '<table class="content01-table">'
-    + '<tr>'
-    +    '<th>Вік</th>'
-    +    '<th>Дохід</th>'
-    +    '<th>Штрафи</th>'
-    +    '<th>Оцінка</th>'
-    +  '</tr>';
+      + '<tr>'
+      +    '<th>№</th>'
+      +    '<th>Вік</th>'
+      +    '<th>Дохід</th>'
+      +    '<th>Штрафи</th>'
+      +    '<th>Оцінка</th>'
+      +  '</tr>';
     for (i = 0; i < N; ++i) {
       dfht += '<tr>'
+        +    `<th>${i+1}</th>`
         +    `<td>${df_age[i]}</td>`
         +    `<td>${df_income[i]}</td>`
         +    `<td>${df_penalty[i]}</td>`
