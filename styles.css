@@ -78,3 +78,10 @@ body {
 .content01-table th { background-color: gray; color: white; }
 .content01-table tr:nth-child(odd) { background-color: whitesmoke; }
 .content01-table tr:nth-child(even) { background-color: white; }
+
+.questions-table { text-align: center; max-width: 755px; }
+.questions-table td { padding: 2px 4px; padding-left: 1.5em; text-align: left; text-indent: -1em; hyphens: auto; }
+.questions-table td code { background-color: lightyellow; }
+.questions-table th { background-color: gray; color: white; min-width: 35px; }
+.questions-table tr:nth-child(odd) { background-color: whitesmoke; }
+.questions-table tr:nth-child(even) { background-color: white; }

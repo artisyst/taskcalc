@@ -46,6 +46,7 @@
                 <option>09</option>
                 <option>10</option>
                 <option>КР</option>
+                <option>ЕКЗ</option>
               </select>    
             </td>
             <td><button id="button-gen" class="button-gen">OK</button></td>
@@ -373,7 +374,7 @@
     $('#button-gen').on('click', function () {
       const fn = $('#inp-fullname').val().trim().replace(/\s+/g,' ').toUpperCase();
       if (fn.length == 0) {
-        alert('Немає імені/призвіща!');
+        alert('Немає імені/прізвища!');
         return;
       };
       seedlist = seedlist_4x32(fn)
@@ -392,6 +393,7 @@
           window.location.replace("?lab=08");
           break;
         case 'КР': coursework(rand); break
+        case 'ЕКЗ': window.location.replace("exam-questions.html");; break
         default:
           alert('Вибачте, ще не готово...');
           break;
