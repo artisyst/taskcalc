@@ -185,6 +185,10 @@
         alert(`⚠ ⚠ ⚠\nНеправдоподібно багато оцінок для користувача\n"${NAME_ROW[NAME_ROW.length-1]}"`);
         return;
       }
+      if (fraud_detector < 2) {
+        alert(`⚠ ⚠ ⚠\nПоставте хоча б дві оцінки для користувача "${NAME_ROW[NAME_ROW.length-1]}"`);
+        return;
+      }
       copy_to_clipboard(df + '\n');
       console.log(df);
     });
