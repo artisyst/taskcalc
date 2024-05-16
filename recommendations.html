@@ -160,6 +160,7 @@
       console.log('Copy to cb');
       var df = '';
       var rid = -1;
+      var fraud_detector = 0;
       $('#recommendations-table > tbody > tr').each(function() {
         var cid = 0;
         $(this).children('td').each(function(){
@@ -171,12 +172,19 @@
               df += ',\n';
             // console.log(`[${rid}][${cid}]`);
             df += `\t\t["${NAME_ROW[rid]}","${NAME_COL[cid]}",${e},${TIMESTAMP[rid][cid]}]`;
+            if (e >= 4 && rid == NAME_ROW.length-1)
+              fraud_detector += 1;
           }
           cid += 1;
         })
         rid += 1;
       });
       df = `df = pd.DataFrame([\n${df}\n\t],\n\tcolumns=["ClientID","ItemID","Rating","Timestamp"])`
+      // console.log(`fraud_detector = ${fraud_detector}`);
+      if (fraud_detector > (NAME_COL.length >> 1)) {
+        alert(`⚠ ⚠ ⚠\nНеправдоподібно багато оцінок для користувача\n"${NAME_ROW[NAME_ROW.length-1]}"`);
+        return;
+      }
       copy_to_clipboard(df + '\n');
       console.log(df);
     });
