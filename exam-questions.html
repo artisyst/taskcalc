@@ -92,7 +92,9 @@
 <script>
   $(function() {
     console.log("Loaded...");
-    if (Cookies.get('widn').length == 0 || Cookies.get('fullname').length == 0) {
+    const fullname = Cookies.get('fullname') || '';
+    const widn = Cookies.get('widn') || '';
+    if (widn.length == 0 || fullname.length == 0) {
       $('body').html('<center>'
         + '<h1>Ви не слухач курсу лекцій "Системи штучного інтелекту" і Вам здавати екзамен не потрібно!</h1>'
         + '</center>')
