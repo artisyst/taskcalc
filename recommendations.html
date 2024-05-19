@@ -124,8 +124,9 @@
   $(function() {
     console.log("Loaded...");
 
-    var fullname = Cookies.get('fullname');
-    if (Cookies.get('widn').length == 0 || fullname.length == 0) {
+    var fullname = Cookies.get('fullname') || '';
+    var widn = Cookies.get('widn') || '';
+    if (widn.length == 0 || fullname.length == 0) {
       $('body').html('<center>'
         + '<h1>Ви не слухач курсу лекцій "Системи штучного інтелекту"</h1>'
         + '</center>');
@@ -182,11 +183,11 @@
       df = `df = pd.DataFrame([\n${df}\n\t],\n\tcolumns=["ClientID","ItemID","Rating","Timestamp"])`
       // console.log(`fraud_detector = ${fraud_detector}`);
       if (fraud_detector > (NAME_COL.length >> 1)) {
-        alert(`⚠ ⚠ ⚠\nНеправдоподібно багато оцінок для користувача\n"${NAME_ROW[NAME_ROW.length-1]}"`);
+        alert(`⚠ Неправдоподібно багато оцінок для користувача "${NAME_ROW[NAME_ROW.length-1]}"`);
         return;
       }
       if (fraud_detector < 2) {
-        alert(`⚠ ⚠ ⚠\nПоставте хоча б дві оцінки для користувача "${NAME_ROW[NAME_ROW.length-1]}"`);
+        alert(`⚠ Поставте хоча б дві оцінки для користувача "${NAME_ROW[NAME_ROW.length-1]}"`);
         return;
       }
       copy_to_clipboard(df + '\n');
