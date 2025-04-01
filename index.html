@@ -124,8 +124,8 @@
     while (digit_a == digit_b)
       digit_b = Math.floor(randge(0,10));
     var dfht = '<div class="content01-div">'
-      + '<a href="https://colab.research.google.com/drive/1BdeeRmQCame-wZmoEkQugS9QozH_i2Gr?usp=sharing">Лекція</a> | '
-      + '<a href="https://colab.research.google.com/drive/10eDo-4dqiFYMUrIrTKuW4sIgVqVi6f9f?usp=sharing">Завдання</a><br/></br>'
+      + '  <a href="https://colab.research.google.com/drive/1BdeeRmQCame-wZmoEkQugS9QozH_i2Gr?usp=sharing">Лекція</a> | '
+      + '  <a href="https://colab.research.google.com/drive/10eDo-4dqiFYMUrIrTKuW4sIgVqVi6f9f?usp=sharing">Завдання</a><br/></br>'
       +   '<h2>A = ' + digit_a + '</h2>'
       +   '<h2>B = ' + digit_b + '</h2>'
       + '</div>';
@@ -141,6 +141,9 @@
     const randge = function(from, to) { return rand_range(rand, from, to); }
     var min_corr = randge(0.3,0.5).toFixed(3);
     var dfht = '<div class="content01-div">'
+      +   '<a href="https://docs.google.com/spreadsheets/d/1pkwMh-5or6gvJKIhVNJOtnFs-WHGSJ8rr5C8L9LAGBQ/edit?usp=sharing">Лекція 1</a>, '
+      +   '<a href="https://colab.research.google.com/drive/1ZnJn9MDfPQWYoh2jjltb5x5ThtzTTQpd?usp=sharing">Лекція 4</a> | '
+      +   '<a href="https://colab.research.google.com/drive/16rvC9yy3iBCSATIReRUQQA4-s0GgewmB?usp=sharing">Завдання</a><br/></br>'
       +   '<h2>Мінімальна кореляція: ' + min_corr + '</h2>'
       + '</div>';
     $('#content').html(dfht);
