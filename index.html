@@ -157,7 +157,7 @@
     console.log('Лабораторно-практична робота №4');
     const randge = function(from, to) { return rand_range(rand, from, to); }
     const s = Math.floor(randge(1.,9.99));
-    var v = '<a href="AIS_W04.ipynb">AIS_W04.ipynb</a><hr>'
+    var v = '<hr>'
     switch(s) {
       case 1: v += 'Дощ -> осінь<br>Сніг -> ?'; break;
       case 2: v += 'Мама -> Тато<br>Сестра -> ?'; break;
@@ -171,6 +171,8 @@
     }
     v += '<hr>Сумаризація тексту № ' + Math.floor(randge(2.,8.9))
     var dfht = '<div class="content01-div">'
+      +   '<a href="https://colab.research.google.com/drive/1SD0e29FmIF5EzQswJMxH67wWmloxHN1m?usp=sharing">Лекція</a>, '
+      +   '<a href="https://colab.research.google.com/drive/1LEmFyABPEz4e6SLkGItQpNK9qzU8p-y3?usp=sharing">Завдання</a><br/>'
       + v
       + '</div>';
     $('#content').html(dfht);
