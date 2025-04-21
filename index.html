@@ -201,23 +201,25 @@
     console.log('Лабораторно-практична робота №6');
     const randge = function(from, to) { return rand_range(rand, from, to); }
     const test_questions =[
-      'Make a scientific discovery for me!',
-      'Is the world a simulation?',
-      'Where do elephants live?',
-      'What is the highest peak on Earth?',
-      'Where is the center of the universe?',
-      'Do you like flowers?',
-      'How to conquer the world',
-      'Will you steal my job?',
-      'Do you play chess?',
-      'Sing me a song!',
-      'Who lives on Mars?'
+      'Чат-бот стоматологічної клініки',
+      'Чат-бот банківських продуктів/послуг',
+      'Чат-бот станції технічного обслуговування',
+      'Чат-бот на митниці',
+      'Чат-бот магазину одягу',
+      'Чат-бот ремонтної майстерні побутових приладів',
+      'Чат-бот швидкої доставки товарів',
+      'Чат-бот юридично-консалтингової фірми',
+      'Чат-бот комунальних послуг',
+      'Чат-бот підтримки клієнтів програмного забезпечення',
+      'Чат-бот служби виклику швидкої медичної допомоги'
     ];
     n = Math.trunc(randge(0, test_questions.length));
     var dfht = '<div class="content01-div">'
-      + '<a href="dataset_w06.zip">dataset_w06.zip</a><hr>'
-      + test_questions[n]
-      + ''
+      +   '<a href="https://colab.research.google.com/drive/1Tzl8OSIOHSuKU_Oo8QbQ-5SReI3c81gb?usp=sharing">Лекція</a> | '
+      +   '<a href="https://colab.research.google.com/drive/1VtVLPzLOt0nsZaTxLn67ljOmBZ1iDMBw?usp=sharing">Завдання</a><br/>'
+      +   '<hr/>'
+      +   '<a href="dataset_w06.zip">dataset_w06.zip</a><hr>'
+      +   test_questions[n]
       + '</div>';
     $('#content').html(dfht);
     console.log(test_questions[n]);
