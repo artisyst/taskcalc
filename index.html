@@ -231,13 +231,17 @@
   function lab_pract_07(rand) {
     console.log('Лабораторно-практична робота №7');
     const randge = function(from, to) { return rand_range(rand, from, to); }
-    var dfht = '<div class="content01-div">'+
-    '<table class="content01-table">'
+    var dfht = '<div class="content01-div">'
+    + '<a href="https://colab.research.google.com/drive/14TFeuRHpw7p0m5CmYd-84m5WE9Lgb9mD?usp=sharing">Лекція</a> | '
+    + '<a href="https://colab.research.google.com/drive/1g_NQ8B7Oh3qOdVeLNK0WtWzfC24aamyw?usp=sharing">Завдання</a><hr/>'
+    + '<center>'
+    + '<table class="content01-table">'
     + '<tr>'
     +    '<th>Довжина</th>'
     +    '<th>Ширина</th>'
     +    '<th>Клас</th>'
-    +  '</tr>';
+    +  '</tr>'
+    +  '</center>';
     var len, len1, width, cls;
     var thumb = 1.;
     for (var i = 1; i <= 15; ++i) {
