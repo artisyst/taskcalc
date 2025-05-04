@@ -376,6 +376,19 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 09 ///
+  function lab_pract_09(rand) {
+    console.log('Лабораторно-практична робота №9');
+    var dfht = '<div class="content01-div">'
+    +   '<a href="https://colab.research.google.com/drive/1YWgrWp5pMK2rC36j6hNG1Dhwdj2H-kBd?usp=sharing">Лекція</a> | '
+    +   '<a href="https://colab.research.google.com/drive/1mJlwzrqiYtpiDAgootnSVHxP8d_KJJwb?usp=sharing">Завдання</a><hr/>'
+    +   'Індивідуальні дані ті ж самі, що і для <a href="taskcalc/?lab=08">лабораторної роботи №8</a>'
+    + '</div>';
+    $('#content').html(dfht)
+  }
+</script>
+
+<script>
   ////////////////////////////////////////////////////////////////////// КР ///
   function coursework(rand) {
     console.log('Курсова робота');
@@ -426,9 +439,7 @@
         case '06': lab_pract_06(rand); break;
         case '07': lab_pract_07(rand); break;
         case '08': lab_pract_08(rand); break;
-        case '09': alert('Дані такі ж самі, як і для лабораторно-практичної роботи №8.');
-          window.location.replace("?lab=08");
-          break;
+        case '09': lab_pract_09(rand); break;
         case '10':
           Cookies.set('fullname', $('#inp-fullname').val());
           window.location.replace("recommendations.html"); break;
