@@ -390,6 +390,23 @@
 </script>
 
 <script>
+  /////////////////////////////////////////////////////////////////// ЛР 10 ///
+  function lab_pract_10(rand) {
+    console.log('Лабораторно-практична робота №10');
+    var dfht = '<div class="content01-div">'
+    +   '<a href="https://colab.research.google.com/drive/11BQClKp9SKIZv7PXZIF1VMhm6bCCVX7g?usp=sharing">Лекція</a> | '
+    +   '<a href="https://colab.research.google.com/drive/1yj1pZ_-qdSLEddJw9xQoUn3UTTZM72ar?usp=sharing">Зразок</a><hr/>'
+    +   'Перейти в редактор матриці V оцінок і отримати завдання: <button onclick="lab_pract_10_onclick()">Редактор</button>'
+    + '</div>';
+    $('#content').html(dfht)
+  }
+  function lab_pract_10_onclick() {
+    Cookies.set('fullname', $('#inp-fullname').val());
+    window.location.replace("recommendations.html");
+  }
+</script>
+
+<script>
   ////////////////////////////////////////////////////////////////////// КР ///
   function coursework(rand) {
     console.log('Курсова робота');
@@ -441,9 +458,7 @@
         case '07': lab_pract_07(rand); break;
         case '08': lab_pract_08(rand); break;
         case '09': lab_pract_09(rand); break;
-        case '10':
-          Cookies.set('fullname', $('#inp-fullname').val());
-          window.location.replace("recommendations.html"); break;
+        case '10': lab_pract_10(rand); break;
         case 'КР': coursework(rand); break;
         case 'ЕКЗ':
           Cookies.set('fullname', $('#inp-fullname').val());
